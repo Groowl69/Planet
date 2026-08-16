@@ -1,0 +1,454 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    overflow: hidden;
+}
+
+/* Экраны */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    z-index: 100;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Главное меню */
+#main-menu h1 {
+    font-size: 4em;
+    color: #e94560;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #0f3460;
+    margin-bottom: 50px;
+}
+
+button {
+    padding: 15px 40px;
+    margin: 10px;
+    font-size: 1.2em;
+    background: #0f3460;
+    color: #eee;
+    border: 2px solid #e94560;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #e94560;
+    color: #1a1a2e;
+    transform: scale(1.05);
+}
+
+/* Выбор персонажа */
+.character-carousel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#character-display {
+    text-align: center;
+}
+
+#char-canvas {
+    border: 3px solid #e94560;
+    border-radius: 50%;
+    background: #16213e;
+}
+
+/* Настройки */
+#settings-screen label {
+    display: block;
+    margin: 20px;
+    font-size: 1.2em;
+}
+
+#settings-screen input[type="range"] {
+    width: 200px;
+    margin-left: 10px;
+}
+
+#settings-screen select {
+    padding: 5px;
+    font-size: 1em;
+}
+
+/* Игровой экран */
+#game-screen {
+    background: #000;
+}
+
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* HUD */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#minimap-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: auto;
+}
+
+#minimap {
+    border: 2px solid #333;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#level-bar-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    text-align: center;
+}
+
+#xp-bar {
+    width: 100%;
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+#xp-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    transition: width 0.3s;
+}
+
+#health-container {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 200px;
+}
+
+#health-bar {
+    width: 100%;
+    height: 25px;
+    background: #333;
+    border: 2px solid #c00;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#health-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #c00, #f00);
+    transition: width 0.3s;
+}
+
+#energy-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 200px;
+}
+
+#energy-bar {
+    width: 100%;
+    height: 20px;
+    background: #333;
+    border: 2px solid #ffeb3b;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#energy-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffeb3b, #ffc107);
+    transition: width 0.3s;
+}
+
+#status-effects {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 200px;
+}
+
+.status-effect {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #666;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+}
+
+#day-night-indicator {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+#weather-indicator {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+#game-time {
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    font-family: monospace;
+}
+
+#chat-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.chat-message {
+    margin: 5px 0;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+/* Радиальное меню навыков */
+#skill-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+}
+
+#skill-canvas {
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Инвентарь */
+#inventory-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 26, 46, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    border: 3px solid #e94560;
+    pointer-events: auto;
+    min-width: 400px;
+}
+
+#inventory-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.inventory-slot {
+    width: 60px;
+    height: 60px;
+    background: #16213e;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.inventory-slot:hover {
+    border-color: #e94560;
+    transform: scale(1.1);
+}
+
+.inventory-slot.active {
+    border-color: #4CAF50;
+    background: #1a4a2e;
+}
+
+.artifact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+/* Меню паузы */
+#pause-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 26, 46, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    border: 3px solid #e94560;
+    text-align: center;
+    pointer-events: auto;
+}
+
+/* Экран смерти */
+#death-screen h2 {
+    font-size: 3em;
+    color: #e94560;
+    margin-bottom: 20px;
+}
+
+#death-message {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #aaa;
+}
+
+/* Модальные окна */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal-content {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    border: 3px solid #e94560;
+    max-width: 500px;
+    text-align: center;
+}
+
+#modal-title {
+    font-size: 1.5em;
+    color: #e94560;
+    margin-bottom: 15px;
+}
+
+#modal-text {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Экран загрузки */
+.loading-bar {
+    width: 300px;
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#loading-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #e94560, #0f3460);
+    transition: width 0.3s;
+}
+
+#loading-tip {
+    font-style: italic;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.missing {
+    animation: pulse 1s infinite;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px #e94560; }
+    50% { box-shadow: 0 0 20px #e94560, 0 0 30px #e94560; }
+}
+
+.critical-health {
+    animation: glow 0.5s infinite;
+}
+
+/* Стили для разных редкостей артефактов */
+.rarity-common { border-color: #888; background: rgba(136, 136, 136, 0.2); }
+.rarity-rare { border-color: #4CAF50; background: rgba(76, 175, 80, 0.2); }
+.rarity-special { border-color: #2196F3; background: rgba(33, 150, 243, 0.2); }
+.rarity-ancient { border-color: #9C27B0; background: rgba(156, 39, 176, 0.2); box-shadow: 0 0 10px #9C27B0; }
