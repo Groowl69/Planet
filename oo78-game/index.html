@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОО-78: Область Опасности</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Главное меню -->
+    <div id="main-menu" class="screen active">
+        <h1>ОО-78</h1>
+        <p class="subtitle">Область Опасности</p>
+        <button id="btn-start">Начать эволюцию</button>
+        <button id="btn-settings">Настройки</button>
+        <button id="btn-encyclopedia">Энциклопедия</button>
+    </div>
+
+    <!-- Выбор персонажа -->
+    <div id="character-select" class="screen">
+        <h2>Выберите персонажа</h2>
+        <div class="character-carousel">
+            <button id="char-prev">&lt;</button>
+            <div id="character-display">
+                <canvas id="char-canvas" width="200" height="200"></canvas>
+                <h3 id="char-name">Протагон</h3>
+                <p id="char-desc">Базовый персонаж</p>
+                <p id="char-stats"></p>
+            </div>
+            <button id="char-next">&gt;</button>
+        </div>
+        <button id="btn-confirm-char">Выбрать</button>
+        <button id="btn-back-menu">Назад</button>
+    </div>
+
+    <!-- Настройки -->
+    <div id="settings-screen" class="screen">
+        <h2>Настройки</h2>
+        <label>Язык: 
+            <select id="setting-language">
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+            </select>
+        </label>
+        <label>Громкость музыки: <input type="range" id="setting-music-volume" min="0" max="100" value="50"></label>
+        <label>Громкость эффектов: <input type="range" id="setting-sfx-volume" min="0" max="100" value="50"></label>
+        <button id="btn-save-settings">Сохранить</button>
+        <button id="btn-back-settings">Назад</button>
+    </div>
+
+    <!-- Энциклопедия -->
+    <div id="encyclopedia-screen" class="screen">
+        <h2>Энциклопедия</h2>
+        <div id="encyclopedia-content"></div>
+        <button id="btn-back-encyclopedia">Назад</button>
+    </div>
+
+    <!-- Экран загрузки -->
+    <div id="loading-screen" class="screen">
+        <h2>Загрузка...</h2>
+        <p id="loading-tip"></p>
+        <div class="loading-bar"><div id="loading-progress"></div></div>
+    </div>
+
+    <!-- Игровой экран -->
+    <div id="game-screen" class="screen">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- HUD -->
+        <div id="hud">
+            <div id="minimap-container">
+                <canvas id="minimap" width="150" height="150"></canvas>
+            </div>
+            <div id="level-bar-container">
+                <div id="level-info">Уровень: <span id="current-level">1</span></div>
+                <div id="xp-bar"><div id="xp-fill"></div></div>
+            </div>
+            <div id="health-container">
+                <div id="health-bar"><div id="health-fill"></div></div>
+                <div id="health-text"><span id="current-hp">100</span>/<span id="max-hp">100</span></div>
+            </div>
+            <div id="energy-container">
+                <div id="energy-bar"><div id="energy-fill"></div></div>
+                <div id="energy-text"><span id="current-energy">100</span>/<span id="max-energy">100</span></div>
+            </div>
+            <div id="status-effects"></div>
+            <div id="day-night-indicator">День</div>
+            <div id="weather-indicator">Ясно</div>
+            <div id="game-time">00:00</div>
+            <div id="chat-box"></div>
+        </div>
+
+        <!-- Радиальное меню навыков -->
+        <div id="skill-menu" class="hidden">
+            <canvas id="skill-canvas" width="300" height="300"></canvas>
+        </div>
+
+        <!-- Инвентарь -->
+        <div id="inventory-screen" class="hidden">
+            <h3>Инвентарь</h3>
+            <div id="inventory-slots"></div>
+            <button id="btn-close-inventory">Закрыть</button>
+        </div>
+
+        <!-- Меню паузы -->
+        <div id="pause-screen" class="hidden">
+            <h3>Пауза</h3>
+            <button id="btn-resume">Продолжить</button>
+            <button id="btn-quit">Выйти в меню</button>
+        </div>
+    </div>
+
+    <!-- Экран смерти -->
+    <div id="death-screen" class="screen">
+        <h2>Конец эволюции</h2>
+        <p id="death-message"></p>
+        <button id="btn-restart">Новый забег</button>
+        <button id="btn-menu-death">В меню</button>
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="modal-overlay" class="hidden">
+        <div id="modal-content">
+            <h3 id="modal-title"></h3>
+            <p id="modal-text"></p>
+            <button id="modal-close">OK</button>
+        </div>
+    </div>
+
+    <!-- Подключение модулей -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
